@@ -30,7 +30,7 @@ public class LoanProcess extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String errorMessage= validateData(request);
-		if(StringUtils.isAllBlank(errorMessage)) {
+		if(StringUtils.isNoneBlank(errorMessage)) {
 			request.setAttribute("errorMessage", errorMessage);
 			RequestDispatcher rd=  request.getRequestDispatcher("/pages/request");
 			rd.include(request, response);
@@ -93,7 +93,7 @@ public class LoanProcess extends HttpServlet {
 		if(StringUtils.isBlank(monthlyrent)) {
 			return"enter mmonthlyrent";
 		}
-		return "hello";
+		return null;
 
 
 	}
