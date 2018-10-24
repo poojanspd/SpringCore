@@ -30,10 +30,10 @@ public class LoanProcess extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String errorMessage= validateData(request);
-		if(StringUtils.isAllBlank(errorMessage)) {
+		if(StringUtils.isNoneBlank(errorMessage)) {
 			request.setAttribute("errorMessage", errorMessage);
-			RequestDispatcher rd=  request.getRequestDispatcher("/pages/request");
-			rd.include(request, response);
+			RequestDispatcher rd=  request.getRequestDispatcher("/pages/request.jsp");
+			rd.forward(request, response);
 			return;
 		}
 		Customer customer = prepareCustomer(request);
@@ -45,7 +45,7 @@ public class LoanProcess extends HttpServlet {
 		request.setAttribute("loanResponse", loanResponse);
 		
 		//e. forword the request to JSP
-		RequestDispatcher rd = request.getRequestDispatcher("/pages/response");
+		RequestDispatcher rd = request.getRequestDispatcher("/pages/response.jsp");
 		rd.forward(request, response);
 		return;
 	
@@ -93,7 +93,7 @@ public class LoanProcess extends HttpServlet {
 		if(StringUtils.isBlank(monthlyrent)) {
 			return"enter mmonthlyrent";
 		}
-		return "hello";
+		return null;
 
 
 	}

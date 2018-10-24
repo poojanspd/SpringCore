@@ -8,7 +8,7 @@
   	<servlet-name>LoanProcess</servlet-name>
   	<display-name>LoanProcess</display-name>
   	<description></description>
-  	<servlet-class>abcd.my.LoanProcess</servlet-class>
+  	<servlet-class>imcs.webapp.LoanProcess</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>LoanProcess</servlet-name>

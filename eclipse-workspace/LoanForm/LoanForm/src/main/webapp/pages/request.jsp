@@ -8,7 +8,7 @@
 </head>
 <body>
 <div>
-${errorMessage}
+   ${errorMessage}
 </div>
 <form action="/LoanForm/pages/request" method="post">
 <table>
@@ -26,7 +26,8 @@ ${errorMessage}
 </tr>
 <tr>
 <td> country:</td>
-<td><select name="country"><option value="country">country</option></select></td>
+<td><select name="country"><option value="country">country</option>
+<option value="india">india</option></select></td>
 </tr>
 <tr>
 <td> rent/own:</td>

@@ -1,11 +1,19 @@
 package imcs.webapp;
 
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+
 @NoArgsConstructor
 public class Customer {
+	
+
+	private String fname;
+	private String lname;
+	private String address;
+	private String country;
+	private String rent;
+	private int amount;
+	
 
 	public String getFname() {
 		return fname;
@@ -43,12 +51,6 @@ public class Customer {
 	public void setAmount(Integer amount) {
 		this.amount = amount;
 	}
-	private String fname;
-	private String lname;
-	private String address;
-	private String country;
-	private String rent;
-	private Integer amount;
 	public Customer(String fname, String lname, String address, String country, String rent, Integer amount) {
 		super();
 		this.fname = fname;
