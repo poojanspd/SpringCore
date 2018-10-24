@@ -33,19 +33,15 @@ public class LoanProcess extends HttpServlet {
 		if(StringUtils.isNoneBlank(errorMessage)) {
 			request.setAttribute("errorMessage", errorMessage);
 			RequestDispatcher rd=  request.getRequestDispatcher("/pages/request.jsp");
+
 			rd.forward(request, response);
+			rd.include(request, response);
 			return;
 		}
 		Customer customer = prepareCustomer(request);
-		
-		//c. Call the respective business services to process business logic
-		String loanResponse = loanRequest(customer);
-		
-//		d. Prepare / forword respones to response view pages.
-		request.setAttribute("loanResponse", loanResponse);
-		
-		//e. forword the request to JSP
-		RequestDispatcher rd = request.getRequestDispatcher("/pages/response.jsp");
+			String loanResponse = loanRequest(customer);
+			request.setAttribute("loanResponse", loanResponse);
+			RequestDispatcher rd = request.getRequestDispatcher("/pages/response.jsp");
 		rd.forward(request, response);
 		return;
 	
