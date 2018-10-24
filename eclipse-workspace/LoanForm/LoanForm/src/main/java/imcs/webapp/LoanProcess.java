@@ -32,7 +32,7 @@ public class LoanProcess extends HttpServlet {
 		String errorMessage= validateData(request);
 		if(StringUtils.isNoneBlank(errorMessage)) {
 			request.setAttribute("errorMessage", errorMessage);
-			RequestDispatcher rd=  request.getRequestDispatcher("/pages/request");
+			RequestDispatcher rd=  request.getRequestDispatcher("/pages/request.jsp");
 			rd.include(request, response);
 			return;
 		}
@@ -45,7 +45,7 @@ public class LoanProcess extends HttpServlet {
 		request.setAttribute("loanResponse", loanResponse);
 		
 		//e. forword the request to JSP
-		RequestDispatcher rd = request.getRequestDispatcher("/pages/response");
+		RequestDispatcher rd = request.getRequestDispatcher("/pages/response.jsp");
 		rd.forward(request, response);
 		return;
 	
